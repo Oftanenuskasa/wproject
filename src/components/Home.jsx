@@ -22,39 +22,50 @@ const Home = () => {
             <div className={`transition-all duration-1000 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}>
-              <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block animate-fade-in-up">Welcome to</span>
-                  <span className="block text-blue-600 animate-fade-in-up delay-200 bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
-                    Worktecture
-                  </span>
-                </h1>
-                <p className="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0
-                  animate-fade-in-up delay-300">
-                  Transform your workspace with our innovative architectural solutions. 
-                  We create modern, efficient, and inspiring work environments.
-                </p>
-                
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate-fade-in-up delay-400">
-                  <div className="rounded-md shadow transform transition-all duration-300 hover:scale-105">
-                    <a
-                      href="#services"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium 
-                      rounded-md text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 
-                      transition-all duration-300 md:py-4 md:text-lg md:px-10 shadow-md hover:shadow-xl"
-                    >
-                      Get Started
-                    </a>
+              <div className="sm:text-center lg:text-left flex items-center">
+                <div className="flex-1">
+                  <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span className="block animate-fade-in-up">Welcome to</span>
+                    <span className="block text-blue-600 animate-fade-in-up delay-200 bg-gradient-to-r from-blue-600 to-blue-500 text-transparent bg-clip-text">
+                      Worktecture
+                    </span>
+                  </h1>
+                  <p className="mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate-fade-in-up delay-300">
+                    Transform your workspace with our innovative architectural solutions. 
+                    We create modern, efficient, and inspiring work environments.
+                  </p>
+
+                  <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start animate-fade-in-up delay-400">
+                    <div className="rounded-md shadow transform transition-all duration-300 hover:scale-105">
+                      <a
+                        href="#services"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium 
+                        rounded-md text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 
+                        transition-all duration-300 md:py-4 md:text-lg md:px-10 shadow-md hover:shadow-xl"
+                      >
+                        Get Started
+                      </a>
+                    </div>
+                    <div className="mt-3 sm:mt-0 sm:ml-3 transform transition-all duration-300 hover:scale-105">
+                      <a
+                        href="#contact"
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium 
+                        rounded-md text-blue-700 bg-blue-50 hover:bg-blue-100 transition-all duration-300 md:py-4 md:text-lg md:px-10 
+                        shadow-md hover:shadow-xl"
+                      >
+                        Contact Us
+                      </a>
+                    </div>
                   </div>
-                  <div className="mt-3 sm:mt-0 sm:ml-3 transform transition-all duration-300 hover:scale-105">
-                    <a
-                      href="#contact"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium 
-                      rounded-md text-blue-700 bg-blue-50 hover:bg-blue-100 transition-all duration-300 md:py-4 md:text-lg md:px-10 
-                      shadow-md hover:shadow-xl"
-                    >
-                      Contact Us
-                    </a>
+                </div>
+
+                {/* Rotating Circle with Single Text "Worktecture" */}
+                <div className="w-64 h-64 bg-blue-300 rounded-full flex justify-center items-center ml-8 relative overflow-hidden">
+                  <div className="absolute w-full h-full flex items-center justify-center animate-spin-slow">
+                    {/* Rotating "Worktecture" text */}
+                    <div className="absolute text-white font-bold text-xl transform translate-x-1/2 translate-y-1/2 rotate-0">
+                      Worktecture
+                    </div>
                   </div>
                 </div>
               </div>
@@ -73,50 +84,5 @@ const Home = () => {
     </div>
   );
 };
-
-// Add these animations to your global CSS or Tailwind config
-const styles = `
-  @keyframes blob-slow {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-  
-  @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-blob-slow {
-    animation: blob-slow 7s infinite;
-  }
-  
-  .animate-fade-in-up {
-    animation: fade-in-up 0.5s ease-out forwards;
-  }
-  
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  
-  .delay-200 {
-    animation-delay: 0.2s;
-  }
-  
-  .delay-300 {
-    animation-delay: 0.3s;
-  }
-  
-  .delay-400 {
-    animation-delay: 0.4s;
-  }
-`;
 
 export default Home;

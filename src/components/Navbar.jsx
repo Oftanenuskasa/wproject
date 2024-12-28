@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import { useState, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '../context/AuthContext'; // Import useAuth from the context
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { user, logout } = useAuth(); // Use the user and logout from context
 
   // Handle scroll effect
   useEffect(() => {
@@ -23,32 +26,21 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      const nav = document.getElementById('mobile-menu');
-      if (isOpen && nav && !nav.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isOpen]);
-
   return (
-    <nav 
+    <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-white'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-3 lg:px-4">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0 transition-transform duration-300 hover:scale-105">
-              <img 
-                src="/assets/logo.png" 
-                alt="Worktecture Logo" 
-                className="h-6 sm:h-8 w-auto"
+              {/* Logo Image */}
+              <img
+                src="/images/logo (2).png"  
+                alt="logo"
+                className="w-100% h-100" 
               />
             </div>
           </div>
@@ -69,10 +61,24 @@ const Navbar = () => {
               ))}
             </div>
             <div className="ml-6 flex items-center">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 
-                hover:bg-blue-700 hover:shadow-lg hover:scale-105 active:scale-95">
-                Login/Register
-              </button>
+              {/* Check if user is logged in */}
+              {user ? (
+                <button
+                  onClick={logout}
+                  className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 
+                    hover:bg-red-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 
+                    hover:bg-blue-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                >
+                  Login/Register
+                </Link>
+              )}
             </div>
           </div>
 
@@ -91,36 +97,6 @@ const Navbar = () => {
               ) : (
                 <Bars3Icon className="block h-6 w-6" />
               )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        className={`lg:hidden transition-all duration-300 ease-in-out ${
-          isOpen 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 -translate-y-full pointer-events-none'
-        }`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-b-xl">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-600 hover:text-gray-900 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium
-              transition-all duration-300"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.name}
-            </a>
-          ))}
-          <div className="px-3 py-2">
-            <button className="w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium
-              transition-all duration-300 hover:bg-blue-700 hover:shadow-lg active:scale-95">
-              Login/Register
             </button>
           </div>
         </div>

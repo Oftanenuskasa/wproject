@@ -1,23 +1,116 @@
+import { HiOutlineHome, HiOutlineOfficeBuilding, HiOutlineLightBulb, HiOutlineCode, HiOutlineColorSwatch, HiOutlineGlobeAlt } from 'react-icons/hi';
+
 const Popular = () => {
   const projects = [
+    // Software Services
     {
-      title: "Modern Tech Hub",
-      description: "A contemporary office space designed for technology companies",
-      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3C/svg%3E",
-      category: "Office Space"
+      category: "Software Services",
+      items: [
+        {
+          icon: <HiOutlineCode className="text-5xl" />,
+          title: "Website Building",
+          description: "Custom websites designed for your brand's needs, ensuring a user-friendly experience.",
+        },
+        {
+          icon: <HiOutlineCode className="text-5xl" />,
+          title: "Front End Development",
+          description: "Creating responsive and interactive interfaces for websites using modern technologies.",
+        },
+        {
+          icon: <HiOutlineCode className="text-5xl" />,
+          title: "Back End Development",
+          description: "Server-side development for scalable, high-performance web applications.",
+        },
+      ],
     },
+
+    // Graphics Design
     {
-      title: "Creative Studio",
-      description: "An inspiring workspace for creative professionals",
-      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3C/svg%3E",
-      category: "Studio"
+      category: "Graphics Design",
+      items: [
+        {
+          icon: <HiOutlineColorSwatch className="text-5xl" />,
+          title: "Branding",
+          description: "Designing a complete visual identity for your brand, including colors, typography, and more.",
+        },
+        {
+          icon: <HiOutlineColorSwatch className="text-5xl" />,
+          title: "Logo Design",
+          description: "Unique and memorable logo design that represents your brand and message.",
+        },
+        {
+          icon: <HiOutlineColorSwatch className="text-5xl" />,
+          title: "Company Profile",
+          description: "Designing professional company profiles that highlight your business, values, and services.",
+        },
+      ],
     },
+
+    // Interior Design
     {
-      title: "Collaborative Hub",
-      description: "Open-plan office promoting team collaboration",
-      image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3C/svg%3E",
-      category: "Co-working"
-    }
+      category: "Interior Design",
+      items: [
+        {
+          icon: <HiOutlineOfficeBuilding className="text-5xl" />,
+          title: "Facade Design",
+          description: "Designing the exterior of your building to create a lasting impression.",
+        },
+        {
+          icon: <HiOutlineOfficeBuilding className="text-5xl" />,
+          title: "Interior Design",
+          description: "Creative interior design solutions that enhance functionality and aesthetics.",
+        },
+        {
+          icon: <HiOutlineLightBulb className="text-5xl" />, // New service
+          title: "Lighting Design",
+          description: "Innovative lighting designs that highlight the best features of your space.",
+        },
+      ],
+    },
+
+    // Landscape Services
+    {
+      category: "Landscape Services",
+      items: [
+        {
+          icon: <HiOutlineGlobeAlt className="text-5xl" />,
+          title: "City Landscape",
+          description: "Designing public spaces, parks, and urban areas to create a vibrant environment.",
+        },
+        {
+          icon: <HiOutlineGlobeAlt className="text-5xl" />,
+          title: "Compound Landscape",
+          description: "Transforming private properties and compounds into beautiful, functional outdoor spaces.",
+        },
+        {
+          icon: <HiOutlineGlobeAlt className="text-5xl" />, // New service
+          title: "Garden Design",
+          description: "Custom garden designs to enhance your outdoor living experience.",
+        },
+      ],
+    },
+
+    // Visualization Services
+    {
+      category: "Visualization Services",
+      items: [
+        {
+          icon: <HiOutlineHome className="text-5xl" />,
+          title: "3D Rendering",
+          description: "Creating detailed 3D visualizations for architectural projects.",
+        },
+        {
+          icon: <HiOutlineHome className="text-5xl" />,
+          title: "Animation",
+          description: "Bringing your designs to life through realistic 3D animation and virtual walkthroughs.",
+        },
+        {
+          icon: <HiOutlineHome className="text-5xl" />, // New service
+          title: "Virtual Tours",
+          description: "Immersive virtual tours of your design that let you explore spaces remotely.",
+        },
+      ],
+    },
   ];
 
   return (
@@ -25,60 +118,41 @@ const Popular = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-            Popular Projects
+            Popular Services
           </h2>
           <p className="mt-3 md:mt-4 text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-            Discover our most celebrated architectural works
+            Discover our wide range of services in architecture, design, web development, and visualization.
           </p>
         </div>
 
         <div className="mt-8 md:mt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {projects.map((project, index) => (
-              <article 
-                key={index} 
-                className="group relative bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out border border-gray-100 overflow-hidden"
-              >
-                <div className="aspect-w-16 aspect-h-9 w-full bg-gray-200 group-hover:opacity-90 transition-opacity duration-300">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+          <div className="space-y-8">
+            {projects.map((category, catIndex) => (
+              <div key={catIndex}>
+                <h3 className="text-xl font-semibold text-gray-900">{category.category}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-6">
+                  {category.items.map((project, index) => (
+                    <article
+                      key={index}
+                      className="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out border border-gray-100 overflow-hidden transform hover:scale-105"
+                    >
+                      <div className="aspect-w-16 aspect-h-9 w-full bg-gray-200 group-hover:opacity-90 transition-opacity duration-300">
+                        <div className="w-full h-full flex justify-center items-center bg-gray-200">
+                          {project.icon}
+                        </div>
+                      </div>
+                      <div className="p-4 md:p-6">
+                        <h4 className="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-yellow-600 transition-colors duration-200">
+                          {project.title}
+                        </h4>
+                        <p className="mt-2 text-sm md:text-base text-gray-500 line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-                <div className="p-4 md:p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      {project.category}
-                    </span>
-                  </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 text-sm md:text-base text-gray-500 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex items-center space-x-2">
-                    <button className="inline-flex items-center text-sm md:text-base text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
-                      Learn more
-                      <svg 
-                        className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>

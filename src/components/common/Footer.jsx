@@ -6,7 +6,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             {/* Company Info */}
             <div className="col-span-1">
-              <h2 className="text-2xl text-sky-400 font-bold mb-4">AK-VISION.</h2>
+              <h2 className="text-2xl text-sky-400 font-bold mb-4">WORKTECTURE-VISION.</h2>
               <p className="text-gray-600 mb-4">
                 Our multifaceted company delivers a broad range of services, tailored to meet various client needs with a focus on excellence, productivity, and satisfaction.
               </p>
@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="border-t border-gray-200 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-600 text-sm mb-4 md:mb-0">
-                Copyright © . All Rights Reserved. — Crafted with Care and Precision by Worktecture's Development Team
+                Copyright © . All Rights Reserved. — Crafted with Care and Precision by Worktecture&apos;s Development Team
               </div>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Terms of Use</a>

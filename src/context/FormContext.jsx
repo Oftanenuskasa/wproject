@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const FormContext = createContext();
 
@@ -11,11 +12,11 @@ export function FormProvider({ children }) {
     
     switch (name) {
       case 'email':
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        { const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
           error = 'Please enter a valid email address';
         }
-        break;
+        break; }
       case 'name':
         if (value.length < 2) {
           error = 'Name must be at least 2 characters long';
@@ -59,7 +60,9 @@ export function FormProvider({ children }) {
     </FormContext.Provider>
   );
 }
-
+FormProvider.propTypes = {
+  children: PropTypes.node.isRequired, 
+};
 export function useForm() {
   const context = useContext(FormContext);
   if (!context) {

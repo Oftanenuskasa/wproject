@@ -59,10 +59,10 @@ const About = () => {
                 enhance productivity, and promote well-being.
               </p>
               <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-4">
-                Founded in 2008, we've grown from a small design studio to a comprehensive 
+                Founded in 2008, we&apos;ve grown from a small design studio to a comprehensive 
                 architectural solutions provider. Our approach combines innovative design thinking 
                 with practical solutions, ensuring that each project we undertake perfectly 
-                aligns with our clients' vision and requirements.
+                aligns with our clients&apos; vision and requirements.
               </p>
             </div>
 
@@ -93,10 +93,11 @@ const About = () => {
                 className="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
               >
                 <div className="relative pb-[100%] overflow-hidden"> {/* 1:1 Aspect ratio */}
+                  {/* Circular Image */}
                   <img
                     src={member.image}
                     alt={`${member.name} - ${member.role}`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover rounded-full transform transition-transform duration-300 hover:scale-105"
                     loading="lazy"
                     style={{
                       objectPosition: '50% 20%' // Adjust to focus on faces
